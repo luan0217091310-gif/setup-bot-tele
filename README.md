@@ -142,6 +142,23 @@ MAX_OUTPUT_TOKENS=1500
   npm.cmd start
   ```
 
+### Bước 6: Tự động chạy ngầm khi bật máy Windows (Auto-start)
+Dự án đã tích hợp sẵn bộ script chạy ngầm không hiện cửa sổ CMD và tự khởi động lại nếu mất mạng:
+- **Cài đặt tự động bật cùng Windows:**
+  ```powershell
+  npm.cmd run build
+  powershell -ExecutionPolicy Bypass -File scripts/install-autostart.ps1
+  ```
+- **Bật bot chạy ngầm ngay lập tức:**
+  ```powershell
+  wscript.exe scripts/start-hidden.vbs
+  ```
+- **Dừng bot chạy ngầm:**
+  ```powershell
+  powershell -ExecutionPolicy Bypass -File scripts/stop-bot.ps1
+  ```
+- Xem nhật ký chạy ngầm tại `data/bot.log` và `data/supervisor.log`.
+
 ---
 
 ## 💬 Bảng Lệnh Điều Khiển trên Telegram
